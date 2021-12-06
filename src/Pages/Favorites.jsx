@@ -1,12 +1,16 @@
 import React from 'react'
 import Card from '../components/Card'
+import AppContext from '../context'
 
-const Favorites = ({ items, addToCart, addToFavorite }) => {
+const Favorites = ({ addToCart, addToFavorite }) => {
+
+  const { favoriteItems } = React.useContext(AppContext)
+
   return (
     <div>
-      <h1 className="mb-40">{'Избранные товары'}</h1>
-      <div className="d-flex flex-wrap ">
-        {items.map((obj, index) => (
+      <h1 className='mb-40'>Избранные товары</h1>
+      <div className='d-flex flex-wrap '>
+        {favoriteItems.map((obj, index) => (
           <Card
             key={index}
             {...obj}
