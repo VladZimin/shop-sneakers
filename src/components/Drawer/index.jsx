@@ -12,7 +12,7 @@ const Drawer = ({ items, removeItem, opened }) => {
 
   const { setCartItems, setCartOpened } = React.useContext(AppContext)
   const { totalPrice } = useCart()
-  
+
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
   const onClickOrder = async () => {
@@ -47,7 +47,7 @@ const Drawer = ({ items, removeItem, opened }) => {
           <img
             onClick={() => setCartOpened(false)}
             className='cu-p'
-            src='/img/btn-remove.svg'
+            src='img/btn-remove.svg'
             alt='Remove'
           />
         </h2>
@@ -73,7 +73,7 @@ const Drawer = ({ items, removeItem, opened }) => {
                   <img
                     onClick={() => removeItem(obj.id)}
                     className={styles.removeBtn}
-                    src='/img/btn-remove.svg'
+                    src='img/btn-remove.svg'
                     alt='Remove'
                   />
                 </div>
@@ -98,7 +98,7 @@ const Drawer = ({ items, removeItem, opened }) => {
                 className='greenButton'
               >
                 Оформить заказ
-                <img src='/img/Arrow.svg' alt='Arrow' />
+                <img src='img/Arrow.svg' alt='Arrow' />
               </button>
             </div>
           </>
@@ -106,7 +106,7 @@ const Drawer = ({ items, removeItem, opened }) => {
           <Info
             title={isOrderComplete ? 'Заказ оформлен!' : 'Корзина пустая'}
             imageUrl={
-              isOrderComplete ? '/img/order.png' : '/img/empty-cart.png'
+              isOrderComplete ? 'img/order.png' : 'img/empty-cart.png'
             }
             description={
               isOrderComplete
