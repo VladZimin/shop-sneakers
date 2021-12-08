@@ -7,12 +7,13 @@ const Info = ({ title, description, imageUrl }) => {
     setCartOpened(false)
   }
   return (
-    <div className="cartEmpty d-flex align-center justify-center flex-column flex">
-      <img className="mb-20" width="120px" src={imageUrl} alt="Empty" />
+    <div
+      className='cartEmpty d-flex align-center justify-center flex-column flex'>
+      <img className='mb-20' width='120px' src={imageUrl} alt='Empty' />
       <h2>{title}</h2>
-      <p className="opacity-6">{description}</p>
-      <button onClick={onCloseCart} className="greenButton">
-        <img src="img/arrow.svg" alt="Arrow" />
+      <p className='opacity-6'>{description}</p>
+      <button onClick={onCloseCart} className='greenButton'>
+        <img src='img/Arrow.svg' alt='Arrow' />
         Вернуться назад
       </button>
     </div>
