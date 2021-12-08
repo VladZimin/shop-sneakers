@@ -48,7 +48,7 @@ function App() {
         setCartItems((prev) =>
           prev.filter((item) => Number(item.parentId) !== Number(obj.id))
         )
-        axios.delete(
+        await axios.delete(
           `https://61795c43aa7f3400174049f4.mockapi.io/cart-items/${findItem.id}`
         )
       } else {
@@ -75,9 +75,11 @@ function App() {
   }
   const addToFavorite = async (obj) => {
     try {
-      const findItem = favoriteItems.find((item) => Number(item.id) === Number(obj.id))
+      const findItem = favoriteItems.find((item) => Number(item.parentId) === Number(obj.id))
       if (findItem) {
-        axios.delete(
+        setFavoriteItems((prev) => prev.filter((item) =>
+          Number(item.parentId) !== Number(obj.id)))
+        await axios.delete(
           `https://61795c43aa7f3400174049f4.mockapi.io/favorites/${findItem.id}`
         )
       } else {
@@ -93,8 +95,8 @@ function App() {
   }
   const removeFromCart = async (id) => {
     try {
-      setCartItems((prev) => prev.filter((obj) => obj.id !== id))
-      axios.delete(`https://61795c43aa7f3400174049f4.mockapi.io/cart-items/${id}`)
+      setCartItems((prev) => prev.filter((obj) => Number(obj.id) !== Number(id)))
+      await axios.delete(`https://61795c43aa7f3400174049f4.mockapi.io/cart-items/${id}`)
     } catch (error) {
       alert('Не удвлось удалить товар из корзины!')
     }

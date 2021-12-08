@@ -34,7 +34,7 @@ const Home = ({
       <div className='mb-40 d-flex justify-between align-center'>
         <h1>{searchValue ? `Поиск по: ${searchValue}` : 'Все кроссовки'}</h1>
         <div className='search-block d-flex'>
-          <img src='/img/search.svg' alt='Search' />
+          <img src='img/search.svg' alt='Search' />
           <input
             onChange={onChangeSearchInput}
             value={searchValue}
